@@ -1,5 +1,5 @@
 {
-    "name": "node-mongo-schema-tester"
+    "name": "node-mongodb-schema-validator"
   , "version": "0.1.0"
   , "description": "Test the schema in a mongo collection against some expectations"
   , "keywords": ["test", "mongo", "mongodb"]
@@ -15,5 +15,17 @@
   }
   , "devDependencies": {
     "should": "*"
-  }
+  },
+  "repositories": [
+      {
+        "type": "git",
+        "url": "https://dhendo@github.com/dhendo/node-mongodb-schema-validator.git"
+      }
+    ],
+    "licenses": [
+      {
+        "name": "MIT",
+        "url": "http://www.opensource.org/licenses/MIT"
+      }
+    ]
 }

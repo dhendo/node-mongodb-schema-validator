@@ -1,0 +1,19 @@
+{
+    "name": "node-mongo-schema-tester"
+  , "version": "0.1.0"
+  , "description": "Test the schema in a mongo collection against some expectations"
+  , "keywords": ["test", "mongo", "mongodb"]
+  , "author": "David Henderson <dhendo@gmail.com>"
+  , "main": "index"
+  , "engines": { "node": ">= 0.6.x" }
+  , "scripts": {
+    "test": "make test"
+  }
+  , "dependencies":{
+      "mocha": "*"
+    , "mongodb": "> 0.9.7"
+  }
+  , "devDependencies": {
+    "should": "*"
+  }
+}

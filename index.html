@@ -1,0 +1,116 @@
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen"/>
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+
+  <title>Node-mongodb-schema-validator</title>
+  <meta name="description" content="Use variety.js to validate the schema found in a mongodb collection using node.">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1 class="title">Node-mongodb-schema-validator</h1>
+    </header>
+    <div id="container">
+      <p class="tagline">Use variety.js to validate the schema found in a mongodb collection using node.</p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/dhendo/node-mongodb-schema-validator/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/dhendo/node-mongodb-schema-validator/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/dhendo/node-mongodb-schema-validator" class="code">View Node-mongodb-schema-validator on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+          <h1>node-mongodb-schema-tester -  A schema tester for node and MongoDB</h1>
+
+<p>Use <a href="https://github.com/JamesCropcho/variety">https://github.com/JamesCropcho/variety</a> to validate the schema found in a mongodb collection using node.</p>
+
+<p>Node-mongo-schema-tester allows you to perform some actions against a mongo database, then test the shape of the resulting data against a set of expectations.</p>
+
+<p>For example if you have a collection of people, you can check that all of the objects contain a field "name" and that they are all strings.</p>
+
+<h1>Requirements</h1>
+
+<p>node-mongo-schema-tester uses <a href="https://github.com/JamesCropcho/variety">https://github.com/JamesCropcho/variety</a> and <a href="http://mongodb.github.com/node-mongodb-native/">http://mongodb.github.com/node-mongodb-native/</a></p>
+
+<h1>Warnings</h1>
+
+<p>As per the warning for variety: "I have every reason to believe this tool will not corrupt your data or harm your computer. But if I were you, I would not use it in a production environment."</p>
+
+<p>You have been warned</p>
+
+<h1>Usage</h1>
+
+<p>First you need to have a handle to a mongo collection:</p>
+
+<pre><code>var testCollection;
+var client = new mongo.Db('collectionName', new mongo.Server("127.0.0.1", 27017));
+client.open(function (err, db) {
+  testCollection = db.collection('node_mongo_schema_tester_tests');
+});
+</code></pre>
+
+<p>Now lets put some test data in:</p>
+
+<pre><code> var people = [];
+    people.push({name:'Alice', age:29, hasCar:true, optionalProperty:42, multiTypes:"aString", nested:{inner:'value'}})
+    people.push({name:'Bob', age:32, hasCar:true, multiTypes:33})
+
+    testCollection.insert(people);
+</code></pre>
+
+<p>We can define a set of expectations in the form:</p>
+
+<pre><code>{'keyName': {types : ['string', 'number'], optional : true}
+{'outerObject': {types : ['string', 'number'], optional : true}
+</code></pre>
+
+<p>and run it against the database:</p>
+
+<pre><code>validator.validate(testCollection, expectations, function (err, data) {});
+</code></pre>
+
+<p>The callback will return a list of errors if there are any unexpected keys or they have wrong data types e.g.</p>
+
+<pre><code>errors: [ 'Found unexpected key: "hasCar" of type(s) ["boolean"]' ]
+</code></pre>
+
+<h1>Example</h1>
+
+<p>Run node example.js in the examples folder.</p>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/dhendo" class="avatar"><img src="https://secure.gravatar.com/avatar/82d40230f34397115675b0272504ee82?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png" width="48" height="48"/></a> <a href="https://github.com/dhendo">dhendo</a> maintains <a href="https://github.com/dhendo/node-mongodb-schema-validator">Node-mongodb-schema-validator</a></p>
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br/>theme by <a href="http://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/dhendo/node-mongodb-schema-validator/tarball/master" class="tar">tar</a><a href="https://github.com/dhendo/node-mongodb-schema-validator/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+  
+</body>
+</html>

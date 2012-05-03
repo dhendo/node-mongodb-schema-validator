@@ -1,4 +1,4 @@
-var variety = require('fs').readFileSync('./lib/variety.js', 'utf8');
+var variety = require('fs').readFileSync(__dirname +'/lib/variety.js', 'utf8');
 var mongo = require('mongodb');
 
 var checkResults = function (collection, expected, callback) {
@@ -10,7 +10,7 @@ var checkResults = function (collection, expected, callback) {
             foundItem = data.pop();
 
             key = foundItem._id.key;
-            type = foundItem.value.type;
+            type = foundItem.value.type || foundItem.value.types;
 
             if(key === '_id') {
                 break;

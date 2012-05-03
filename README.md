@@ -1,4 +1,4 @@
-node-mongo-schema-tester -  A schema tester for node and MongoDB
+node-mongodb-schema-tester -  A schema tester for node and MongoDB
 ================================================================
 
 Use https://github.com/JamesCropcho/variety to validate the schema found in a mongodb collection using node.

@@ -1,12 +1,23 @@
-node-mongo-schema-tester
-========================
+node-mongo-schema-tester -  A schema tester for node and MongoDB
+================================================================
 
-Use variety.js to validate the schema found in a mongodb collection using node.
+Use https://github.com/JamesCropcho/variety to validate the schema found in a mongodb collection using node.
 
 Node-mongo-schema-tester allows you to perform some actions against a mongo database, then test the shape of the resulting data against a set of expectations.
 
 For example if you have a collection of people, you can check that all of the objects contain a field "name" and that they are all strings.
 
+Requirements
+============
+
+node-mongo-schema-tester uses https://github.com/JamesCropcho/variety and http://mongodb.github.com/node-mongodb-native/
+
+Warnings
+========
+
+As per the warning for variety: "I have every reason to believe this tool will not corrupt your data or harm your computer. But if I were you, I would not use it in a production environment."
+
+You have been warned
 
 Usage
 =====
@@ -48,3 +59,7 @@ The callback will return a list of errors if there are any unexpected keys or th
 
     errors: [ 'Found unexpected key: "hasCar" of type(s) ["boolean"]' ]
 
+Example
+=======
+
+Run node example.js in the examples folder.
